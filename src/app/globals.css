@@ -6,37 +6,44 @@
    (utilities, components) reads from these CSS variables.
    ============================================================ */
 :root {
+  /* ----------------------------------------------------------
+     BRAND PALETTE (corporate red / white / grey)
+       primary   #C02026  (red)
+       secondary #F5F5F5  (white)
+       text      #4B535D  (grey)
+     ---------------------------------------------------------- */
+
   /* Surfaces */
-  --paper: #f6f5f1; /* warm off-white, editorial */
-  --paper-2: #efece4;
-  --ink: #0b0b0c; /* near-black */
-  --ink-2: #16171a;
-  --ink-3: #24262b;
+  --paper: #f5f5f5; /* secondary — light grey-white */
+  --paper-2: #ffffff; /* pure white (cards / alternate bands) */
+  --ink: #1d2229; /* deep corporate charcoal for dark sections */
+  --ink-2: #262c34;
+  --ink-3: #333a44;
 
   /* Text */
-  --text: #14151a;
-  --text-muted: #5f6168;
-  --text-ondark: #f4f3ee;
-  --text-ondark-muted: #a7a8a2;
+  --text: #2a3038; /* headings — darker slate for contrast */
+  --text-muted: #4b535d; /* body copy — the brand grey */
+  --text-ondark: #f5f5f5;
+  --text-ondark-muted: #b6bbc2;
 
-  /* Brand — deep emerald (sustainability, growth, African transformation) */
-  --brand: #0e5e4e;
-  --brand-600: #0a4b3e;
-  --brand-400: #2f8d77;
-  --brand-soft: rgba(14, 94, 78, 0.1);
-  --brand-glow: rgba(14, 94, 78, 0.25);
+  /* Brand — corporate red */
+  --brand: #c02026;
+  --brand-600: #9c1a1f;
+  --brand-400: #d9474c;
+  --brand-soft: rgba(192, 32, 38, 0.08);
+  --brand-glow: rgba(192, 32, 38, 0.16);
 
-  /* Secondary — warm signal for editorial accents */
-  --gold: #c9a24b;
+  /* Neutral secondary accent */
+  --gold: #4b535d;
 
   /* Lines & shadows */
-  --line: rgba(11, 11, 12, 0.1);
-  --line-strong: rgba(11, 11, 12, 0.16);
-  --line-ondark: rgba(244, 243, 238, 0.12);
+  --line: rgba(75, 83, 93, 0.16);
+  --line-strong: rgba(75, 83, 93, 0.28);
+  --line-ondark: rgba(245, 245, 245, 0.14);
 
-  --shadow-sm: 0 1px 2px rgba(11, 11, 12, 0.06);
-  --shadow-md: 0 10px 30px -12px rgba(11, 11, 12, 0.18);
-  --shadow-lg: 0 30px 60px -20px rgba(11, 11, 12, 0.28);
+  --shadow-sm: 0 1px 2px rgba(29, 34, 41, 0.06);
+  --shadow-md: 0 10px 30px -12px rgba(29, 34, 41, 0.16);
+  --shadow-lg: 0 30px 60px -20px rgba(29, 34, 41, 0.24);
 
   /* Layout */
   --container: 1200px;
@@ -66,7 +73,7 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-display: var(--font-display), Georgia, serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: var(--radius);
 
@@ -100,12 +107,15 @@ body {
   color: #fff;
 }
 
-/* Fluid display type */
+/* Display type — broad geometric sans (Montserrat), corporate weight */
 .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.display-light {
+  font-weight: 600;
 }
 
 .text-balance {

@@ -21,7 +21,7 @@ export function StaggerGroup({
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, amount: 0.15 }}
     >
       {children}
     </motion.div>

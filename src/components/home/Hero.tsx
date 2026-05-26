@@ -50,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.32, ease }}
-              className="italic text-brand-400"
+              className="text-brand-400"
             >
               carry hidden value.
             </motion.span>

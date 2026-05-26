@@ -1,10 +1,12 @@
 import Belief from "@/components/home/Belief";
 import ClientFilter from "@/components/home/ClientFilter";
 import ContactCTA from "@/components/home/ContactCTA";
+import Fieldwork from "@/components/home/Fieldwork";
 import Framework from "@/components/home/Framework";
 import Hero from "@/components/home/Hero";
 import InsightsTeaser from "@/components/home/InsightsTeaser";
 import Leadership from "@/components/home/Leadership";
+import OurWork from "@/components/home/OurWork";
 import Values from "@/components/home/Values";
 
 export default function Home() {
@@ -14,8 +16,10 @@ export default function Home() {
       <ClientFilter />
       <Framework />
       <Belief />
+      <Fieldwork />
       <Values />
       <Leadership />
+      <OurWork />
       <InsightsTeaser />
       <ContactCTA />
     </>

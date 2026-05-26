@@ -4,14 +4,14 @@ import ScrollProgress from "@/components/layout/ScrollProgress";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { site } from "@/lib/content";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const display = Instrument_Serif({
-  weight: "400",
-  style: ["normal", "italic"],
+// Broad, corporate display face (replaces the tall serif).
+const display = Montserrat({
+  weight: ["500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-display",
 });
