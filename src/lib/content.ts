@@ -171,6 +171,64 @@ export const services: Service[] = [
   },
 ];
 
+export type ServiceOffering = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+// Mirrored verbatim from the live /our-services page. Drives the Services page.
+export const serviceOfferings: ServiceOffering[] = [
+  {
+    id: "private-sector-development",
+    title: "Private Sector Development",
+    description:
+      "We offer guidance and assistance to organizations seeking to improve their capabilities, encourage innovation, and navigate the challenges of the private sector.",
+  },
+  {
+    id: "agriculture-transformation",
+    title: "Agriculture Transformation & Agri-Tech",
+    description:
+      "Our expertise in agricultural transformation and AgTech empowers clients to optimize operations, adopt technology-driven solutions, and contribute to the advancement of sustainable agriculture.",
+  },
+  {
+    id: "technology-policy-development",
+    title: "Technology Policy Development",
+    description:
+      "ACE Analytix assists governments and organizations in formulating policies that address the challenges and opportunities presented by the rapidly evolving technology landscape.",
+  },
+  {
+    id: "healthcare-systems",
+    title: "Development of Healthcare Systems",
+    description:
+      "Our healthcare system development services focus on enhancing accessibility, efficiency, and inclusivity in healthcare delivery, ultimately improving the overall well-being of communities.",
+  },
+  {
+    id: "sustainable-energy-markets",
+    title: "Development of Sustainable Energy Markets",
+    description:
+      "ACE Analytix is dedicated to advancing sustainable energy solutions, guiding clients through market development, and supporting the transition to cleaner and more sustainable energy sources.",
+  },
+  {
+    id: "tech-ecosystems",
+    title: "Development of Tech Ecosystems",
+    description:
+      "We work towards creating thriving technology ecosystems by facilitating partnerships, supporting startups, and fostering an environment conducive to innovation.",
+  },
+  {
+    id: "digital-transformation-government",
+    title: "Digital Transformation Across Government",
+    description:
+      "We assist governments in embracing digital transformation, optimizing processes, and enhancing citizen services through the strategic application of technology.",
+  },
+  {
+    id: "civil-service-reforms",
+    title: "Civil Service Reforms",
+    description:
+      "Our civil service reform services aim to streamline government operations, improve accountability, and build a more responsive and efficient civil service.",
+  },
+];
+
 export type Value = {
   title: string;
   body: string;
@@ -206,21 +264,17 @@ export type TeamMember = {
   role: string;
   bio: string;
   credentials: string[];
-  photo?: string; // place files in /public/team/<id>.jpg
+  photo?: string; // place files in /public/team/<id>.webp
+  linkedin?: string; // individual profile URL (falls back to company page)
 };
 
-// Audit fixes applied here:
-//  - Daniel's role corrected to "Founder and Managing Partner"
-//    (was wrongly "Co-founder/Lead Consultant").
-//  - A real biography + named mandates added (was name + title only).
-//
-// TODO (content): add the other 9 team members. The photos exist on the live
-// site; drop them in /public/team and add entries below. Each renders
-// automatically — no code change needed.
+// NOTE (content): bios for non-founders are professional drafts written from
+// each person's role — review and replace with their own words. Replace each
+// `linkedin` with the individual's profile URL when available.
 export const team: TeamMember[] = [
   {
     id: "daniel",
-    name: "Daniel", // TODO: confirm full name for display
+    name: "Daniel Ikuenobe",
     role: "Founder and Managing Partner",
     bio: "Daniel leads ACE Analytix and its work at the intersection of government, institutions, and delivery. He has advised and embedded at the highest levels of public reform — from national open-government programmes to state economic management — and built the firm around a single conviction: strategy is only as good as what gets delivered.",
     credentials: [
@@ -229,9 +283,71 @@ export const team: TeamMember[] = [
       "Edo State Economic Management Team",
       "Former Palladium",
     ],
-    // Drop the real photo at /public/team/daniel.jpg and set the path here.
-    // Until then, a designed monogram renders in its place.
-    photo: undefined,
+    photo: "/team/daniel.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "megor",
+    name: "Dr. Megor Ikuenobe",
+    role: "Co-Founder",
+    bio: "Megor co-founded ACE Analytix and helps set the firm's direction and standards. She brings depth across leadership, institutional development, and the human dimension of transformation — the part that determines whether change actually holds.",
+    credentials: [],
+    photo: "/team/megor.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "martin-kalima",
+    name: "Martin Kalima",
+    role: "Director of Operations and Delivery",
+    bio: "Martin leads operations and delivery, turning strategy into milestones and milestones into results. He keeps engagements moving — coordinating teams, tracking progress, and holding the line on execution.",
+    credentials: [],
+    photo: "/team/martin-kalima.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "olamide-dauda",
+    name: "Olamide Dauda",
+    role: "Lead Consultant",
+    bio: "Olamide leads client engagements, translating complex problems into clear, workable plans and staying close to delivery on the ground until the work lands.",
+    credentials: [],
+    photo: "/team/olamide-dauda.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "michelle-makhumula",
+    name: "Michelle Makhumula",
+    role: "Senior Analyst, Strategic Communication & Delivery",
+    bio: "Michelle works across strategic communication and delivery, making sure the firm's thinking lands clearly and that programmes stay aligned as they move from plan to result.",
+    credentials: [],
+    photo: "/team/michelle-makhumula.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "ikenna-ekeh",
+    name: "Ikenna Ekeh",
+    role: "Programme Associate, Growth & Partnerships",
+    bio: "Ikenna supports growth and partnerships, building the relationships and opportunities that extend the firm's reach and the impact of its work.",
+    credentials: [],
+    photo: "/team/ikenna-ekeh.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "oluchi-okechukwu",
+    name: "Oluchi Okechukwu",
+    role: "Programme Associate, People & Operations",
+    bio: "Oluchi supports people and operations, keeping the firm organised and its teams supported so that every engagement runs smoothly.",
+    credentials: [],
+    photo: "/team/oluchi-okechukwu.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
+  },
+  {
+    id: "wisdom-onoriode",
+    name: "Wisdom Onoriode",
+    role: "Programme Associate, Brand & Digital Strategy",
+    bio: "Wisdom leads brand and digital strategy, shaping how ACE Analytix shows up and communicates clearly across every channel.",
+    credentials: [],
+    photo: "/team/wisdom-onoriode.webp",
+    linkedin: "https://www.linkedin.com/company/aceanalytix",
   },
 ];
 

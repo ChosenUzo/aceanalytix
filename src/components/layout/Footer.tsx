@@ -1,6 +1,6 @@
 import Container from "@/components/layout/Container";
 import Logo from "@/components/ui/Logo";
-import { nav, services, site } from "@/lib/content";
+import { nav, serviceOfferings, site } from "@/lib/content";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
@@ -80,7 +80,7 @@ export default function Footer() {
               Services
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
-              {services.map((s) => (
+              {serviceOfferings.slice(0, 6).map((s) => (
                 <li key={s.id}>
                   <Link
                     href={`/services#${s.id}`}
