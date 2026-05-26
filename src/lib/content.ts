@@ -262,21 +262,20 @@ export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  bio: string;
+  bio: string[]; // one entry per paragraph
   credentials: string[];
   photo?: string; // place files in /public/team/<id>.webp
   linkedin?: string; // individual profile URL (falls back to company page)
 };
 
-// NOTE (content): bios for non-founders are professional drafts written from
-// each person's role — review and replace with their own words. Replace each
-// `linkedin` with the individual's profile URL when available.
 export const team: TeamMember[] = [
   {
     id: "daniel",
     name: "Daniel Ikuenobe",
     role: "Founder and Managing Partner",
-    bio: "Daniel leads ACE Analytix and its work at the intersection of government, institutions, and delivery. He has advised and embedded at the highest levels of public reform — from national open-government programmes to state economic management — and built the firm around a single conviction: strategy is only as good as what gets delivered.",
+    bio: [
+      "Daniel leads ACE Analytix and its work at the intersection of government, institutions, and delivery. He has advised and embedded at the highest levels of public reform — from national open-government programmes to state economic management — and built the firm around a single conviction: strategy is only as good as what gets delivered.",
+    ],
     credentials: [
       "TBI Regional Director — Southern Africa & Malawi",
       "Open Government Partnership (OGP) Malawi, 2023–2025",
@@ -284,70 +283,97 @@ export const team: TeamMember[] = [
       "Former Palladium",
     ],
     photo: "/team/daniel.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/dikuenobe01/",
   },
   {
     id: "megor",
     name: "Dr. Megor Ikuenobe",
     role: "Co-Founder",
-    bio: "Megor co-founded ACE Analytix and helps set the firm's direction and standards. She brings depth across leadership, institutional development, and the human dimension of transformation — the part that determines whether change actually holds.",
+    bio: [
+      "Dr. Megor Ikuenobe is an international development and systems-strengthening specialist with a cross-sector portfolio spanning health, education, early childhood development (ECD), gender, and social protection. Trained as a medical doctor, she brings a rare blend of technical depth, analytical rigour, and contextual understanding to complex human capital and institutional challenges.",
+      "She has advised governments, public sector institutions, and development partners in Africa, supporting strategy design, program implementation, organisational development, and capability building.",
+      "As Co-Founder of ACE Analytix, Dr. Megor co-leads the firm's strategy, technical direction, and people-centred consulting culture. Her work is grounded in a commitment to building systems that deliver sustainable results, strengthening institutions, improving service delivery, and enabling outcomes that transform the lives of women, children, and communities.",
+    ],
     credentials: [],
     photo: "/team/megor.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/drmegor/",
   },
   {
     id: "martin-kalima",
     name: "Martin Kalima",
     role: "Director of Operations and Delivery",
-    bio: "Martin leads operations and delivery, turning strategy into milestones and milestones into results. He keeps engagements moving — coordinating teams, tracking progress, and holding the line on execution.",
+    bio: [
+      "Martin Kalima is a results-driven development leader with over fourteen years of experience providing strategic leadership across public sector reform, international development, and not-for-profit organizations. He has built a distinguished career leading complex, high-impact initiatives at the intersection of government engagement, innovation, communications, and social change.",
+      "He previously served as Senior Manager, External Relations at GiveDirectly, where he led national government and stakeholder engagement in Malawi. In this role, he provided strategic leadership on external outreach, political and technical engagement, and donor-facing communications—strengthening awareness of cash transfer programs and securing high-level political buy-in. He was instrumental in shaping stakeholder strategies, managing external risk, leading media engagement that generated both local and international coverage, and strengthening internal knowledge management and storytelling capacity.",
+      "He has also held a senior leadership role at the Tony Blair Institute for Global Change, where he managed government relations and led the end-to-end delivery of transformative public sector technology initiatives. He advised senior government leaders on innovation for service delivery, drove visibility of reform outcomes through strategic communications, and managed complex work plans and budgets. His leadership included designing and delivering Malawi's first Artificial Intelligence for Leaders' Summit, leading national digital skills and leadership programs for civil servants, and supporting policy reforms such as the migration to electronic payments in government institutions.",
+      "Earlier in his career, Martin provided country-level leadership as Senior Campaigns Manager at Development Media International, overseeing national strategy, budgets, and teams as part of a global consortium delivering large-scale public health campaigns. He previously held leadership roles at Population Services International and Human Network International, where he led the design and implementation of mass media, youth engagement, and technology-enabled behavior change programs reaching millions of people nationwide.",
+      "Across his career, Martin's leadership is guided by a strong commitment to integrity, efficiency, and innovation—values that shape how he builds trust, delivers results, and drives sustainable impact.",
+    ],
     credentials: [],
     photo: "/team/martin-kalima.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/martin-kalima-45150b9/",
   },
   {
     id: "olamide-dauda",
     name: "Olamide Dauda",
     role: "Lead Consultant",
-    bio: "Olamide leads client engagements, translating complex problems into clear, workable plans and staying close to delivery on the ground until the work lands.",
+    bio: [
+      "Olamide Dauda is a practitioner at the intersection of policy, strategy, and social innovation with extensive experience in public policy, strategy formulation, and implementation. She is a seasoned policy expert with over 15 years of experience designing and managing social development programs using evidence-based approaches at community, national, and international levels.",
+      "She played a key role in supporting the take-off of the newly created Federal Ministry of Art, Culture and Creative Economy, leading the formulation of its policy and strategic framework. Olamide has also served as a Policy Consultant with the UN World Food Programme and as the pioneer Director of Policy and Advocacy at the Nigerian Center for Climate Renewal.",
+      "Olamide is the Lead Consultant of ACE Analytix and Co-Founder of Impact Pointe Consultancy Limited, a boutique social-impact firm focused on creating mutual benefits for public, private, and third sector actors. Impact Pointe specializes in scaling social impact solutions by maximizing access to financial and technical assistance for both clients and beneficiaries. She is also Co-Founder and Trustee of Aveaba Charity Foundation, a non-profit dedicated to improving the quality of education in underprivileged communities in Nigeria by providing essential school supplies and critical support.",
+      "Previously, Olamide served as Technical Assistant to the Honourable Minister of Humanitarian Affairs, Disaster Management and Social Development, providing strategic technical expertise for national programs promoting social inclusion, disaster risk resilience, and strategic partnerships to combat food insecurity and drive national development. Her technical competencies span economic growth, gender programs, maternal and child health, WASH, education, inclusive growth, humanitarian aid, impact assessment, social and political inclusion, and governance, law, and justice. She is highly skilled in leading cross-functional teams and managing complex multi-stakeholder initiatives.",
+    ],
     credentials: [],
     photo: "/team/olamide-dauda.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/olamide-dauda-7990855/",
   },
   {
     id: "michelle-makhumula",
     name: "Michelle Makhumula",
     role: "Senior Analyst, Strategic Communication & Delivery",
-    bio: "Michelle works across strategic communication and delivery, making sure the firm's thinking lands clearly and that programmes stay aligned as they move from plan to result.",
+    bio: [
+      "Michelle is a governance and public policy professional supporting Malawi's Open Government Partnership through strategic coordination, policy analysis, and high-level stakeholder engagement. As Senior Analyst responsible for Strategic Communications and Delivery at ACE Analytix, she brings experience across government, international advisory, and development contexts, having worked with the Tony Blair Institute for Global Change, the Ministry of Finance, and in financial and economic analysis roles in Malawi. Her work spans drafting National Action Plans, facilitating inclusive multi-stakeholder reform processes, and producing executive-level briefs and knowledge products that inform policy and delivery.",
+      "With a strong foundation in economics and quantitative analysis, she combines technical rigor with practical delivery experience, particularly in transparency, digital governance, and public financial management reforms. Her background includes economic research, financial reporting, and policy evaluation, enabling her to translate data into actionable insights for decision-makers. Michelle is committed to strengthening accountable, citizen-centered governance systems and contributing to institutional reform efforts across Malawi and the region.",
+    ],
     credentials: [],
     photo: "/team/michelle-makhumula.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/michelle-makhumula-53551523a/",
   },
   {
     id: "ikenna-ekeh",
     name: "Ikenna Ekeh",
     role: "Programme Associate, Growth & Partnerships",
-    bio: "Ikenna supports growth and partnerships, building the relationships and opportunities that extend the firm's reach and the impact of its work.",
+    bio: [
+      "Ikenna Ekeh is a versatile operations and logistics professional with over 5 years of experience across technology, healthcare, and non-profit sectors. He specializes in optimizing workflows, managing supply chains, coordinating programs, and leading cross-functional teams, leveraging data and technology to drive operational efficiency. Ikenna holds a Bachelor of Pharmacy from Rajiv Gandhi University of Health Science, India, and a BSc in Physics from the University of Abuja, Nigeria. He is certified in Supply Chain Management (American Institute of Supply and Transport, 2024), Procurement & Logistics for Humanitarian Operations (Mercy Corps, 2022), and is registered with the Pharmacists Council of Nigeria (2021).",
+      "His expertise spans strategic planning, stakeholder engagement, performance improvement, and program coordination, making him a results-driven professional committed to excellence in every project he undertakes. He has a proven track record in operational excellence and program leadership, including designing and implementing innovative pharmacy processes, optimizing workflows, managing inventory, and improving patient satisfaction. He is experienced in planning and executing high-impact programs, leading conferences, mentoring teams, coordinating outreach initiatives, and enhancing program quality through strategic feedback systems.",
+    ],
     credentials: [],
     photo: "/team/ikenna-ekeh.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin:
+      "https://www.linkedin.com/in/ikenna-e-662278141?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     id: "oluchi-okechukwu",
     name: "Oluchi Okechukwu",
     role: "Programme Associate, People & Operations",
-    bio: "Oluchi supports people and operations, keeping the firm organised and its teams supported so that every engagement runs smoothly.",
+    bio: [
+      "Oluchi Okechukwu is a People and Operations professional with experience spanning project delivery, programme coordination, and organisational efficiency within consulting and policy-focused environments. At ACE Analytix, she drives operational systems, workforce processes, and delivery execution, enabling high-performance teams and seamless project implementation. She previously worked with the Nigerian Economic Summit Group (NESG), where she led editorial strategy and coordinated the delivery of large-scale national policy engagements.",
+    ],
     credentials: [],
     photo: "/team/oluchi-okechukwu.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin:
+      "https://www.linkedin.com/in/oluchiokechukwu?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   },
   {
     id: "wisdom-onoriode",
     name: "Wisdom Onoriode",
     role: "Programme Associate, Brand & Digital Strategy",
-    bio: "Wisdom leads brand and digital strategy, shaping how ACE Analytix shows up and communicates clearly across every channel.",
+    bio: [
+      "Wisdom Onoriode is a brand and technology strategist at ACE Analytix, specializing in building scalable digital platforms and enhancing user experiences. He has strong expertise in digital branding, web design, learning management systems, and growth-focused technology architecture, supporting teams from concept to developer-ready execution. With experience across startups, educational platforms, and enterprise initiatives in Nigeria, he is known for practical problem-solving and turning strategy into actionable solutions.",
+    ],
     credentials: [],
     photo: "/team/wisdom-onoriode.webp",
-    linkedin: "https://www.linkedin.com/company/aceanalytix",
+    linkedin: "https://www.linkedin.com/in/wisdom-onoriode/",
   },
 ];
 

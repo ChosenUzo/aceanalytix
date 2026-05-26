@@ -22,9 +22,9 @@ export default function TeamMemberRow({
 
   return (
     <Reveal direction={flip ? "left" : "right"}>
-      <article className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+      <article className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-16">
         {/* Portrait card — taller than wide; LinkedIn reveals on hover */}
-        <div className={cn(flip && "lg:order-last")}>
+        <div className={cn("lg:sticky lg:top-28 lg:self-start", flip && "lg:order-last")}>
           <a
             href={href}
             target="_blank"
@@ -59,9 +59,11 @@ export default function TeamMemberRow({
         <div className={cn(flip && "lg:order-first")}>
           <h2 className="display text-3xl text-text sm:text-[2.5rem]">{member.name}</h2>
           <p className="mt-2 text-lg font-medium text-brand">{member.role}</p>
-          <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted">
-            {member.bio}
-          </p>
+          <div className="mt-5 max-w-xl space-y-4 text-pretty leading-relaxed text-muted">
+            {member.bio.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
 
           {member.credentials.length > 0 && (
             <ul className="mt-6 flex flex-wrap gap-2.5">

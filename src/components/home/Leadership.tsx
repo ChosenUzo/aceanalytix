@@ -39,7 +39,7 @@ export default function Leadership() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted">
-                {principal.bio}
+                {principal.bio[0]}
               </p>
             </Reveal>
 
