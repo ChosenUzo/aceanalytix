@@ -1,6 +1,8 @@
 import Reveal from "@/components/motion/Reveal";
 import { site, type TeamMember } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 function LinkedInIcon({ size = 16 }: { size?: number }) {
   return (
@@ -18,18 +20,17 @@ export default function TeamMemberRow({
   index: number;
 }) {
   const flip = index % 2 === 1; // alternate: even = image left, odd = image right
-  const href = member.linkedin || site.social.linkedin;
+  const profile = `/team/${member.id}`;
+  const linkedin = member.linkedin || site.social.linkedin;
 
   return (
     <Reveal direction={flip ? "left" : "right"}>
-      <article className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-16">
-        {/* Portrait card — taller than wide; LinkedIn reveals on hover */}
-        <div className={cn("lg:sticky lg:top-28 lg:self-start", flip && "lg:order-last")}>
-          <a
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${member.name} on LinkedIn`}
+      <article className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+        {/* Portrait — taller than wide; links to the member's page */}
+        <div className={cn(flip && "lg:order-last")}>
+          <Link
+            href={profile}
+            aria-label={`View ${member.name}'s profile`}
             className="group relative mx-auto block aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-paper-2 shadow-card lg:mx-0"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,56 +40,41 @@ export default function TeamMemberRow({
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             />
-            {/* darken on hover */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            {/* LinkedIn pill — slides up + fades in */}
+            {/* "View profile" pill — slides up + fades in */}
             <span className="absolute bottom-5 left-5 inline-flex translate-y-3 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-              <span className="text-brand">
-                <LinkedInIcon size={16} />
-              </span>
-              Connect
+              View profile
+              <ArrowRight size={15} className="text-brand" />
             </span>
-            {/* corner brand chip — fades in */}
-            <span className="absolute right-5 top-5 grid h-10 w-10 -translate-y-2 place-items-center rounded-full bg-brand text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <LinkedInIcon size={17} />
-            </span>
-          </a>
+          </Link>
         </div>
 
-        {/* Bio */}
+        {/* Snippet */}
         <div className={cn(flip && "lg:order-first")}>
           <h2 className="display text-3xl text-text sm:text-[2.5rem]">{member.name}</h2>
           <p className="mt-2 text-lg font-medium text-brand">{member.role}</p>
-          <div className="mt-5 max-w-xl space-y-4 text-pretty leading-relaxed text-muted">
-            {member.bio.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+          <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted">
+            {member.summary}
+          </p>
+
+          <div className="mt-8 flex items-center gap-3">
+            <Link
+              href={profile}
+              className="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+            >
+              Read full bio
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${member.name} on LinkedIn`}
+              className="grid h-11 w-11 place-items-center rounded-full border border-line-strong text-text transition-colors hover:border-brand hover:bg-brand hover:text-white"
+            >
+              <LinkedInIcon size={17} />
+            </a>
           </div>
-
-          {member.credentials.length > 0 && (
-            <ul className="mt-6 flex flex-wrap gap-2.5">
-              {member.credentials.map((c) => (
-                <li
-                  key={c}
-                  className="rounded-full border border-line bg-paper-2 px-3.5 py-1.5 text-sm font-medium text-text"
-                >
-                  {c}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <a
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand"
-          >
-            <LinkedInIcon size={15} />
-            <span className="border-b border-transparent transition-colors group-hover:border-brand">
-              Connect on LinkedIn
-            </span>
-          </a>
         </div>
       </article>
     </Reveal>
