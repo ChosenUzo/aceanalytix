@@ -7,12 +7,14 @@ import Hero from "@/components/home/Hero";
 import InsightsTeaser from "@/components/home/InsightsTeaser";
 import Leadership from "@/components/home/Leadership";
 import OurWork from "@/components/home/OurWork";
+import TrustBanner from "@/components/home/TrustBanner";
 import Values from "@/components/home/Values";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <TrustBanner />
       <ClientFilter />
       <Framework />
       <Belief />

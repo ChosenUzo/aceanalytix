@@ -31,6 +31,15 @@ export const site = {
   primaryCta: { label: "Start the conversation", href: "/contact" },
 };
 
+export type Client = { name: string; logo: string };
+
+// Trust-banner partners. Drop logos in /public/clients and add entries here.
+export const clients: Client[] = [
+  { name: "Chandler Foundation", logo: "/clients/chandler-foundation.png" },
+  { name: "Elevate Africa", logo: "/clients/elevate-africa.png" },
+  { name: "Teno Energy", logo: "/clients/teno-energy.png" },
+];
+
 export const nav = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },

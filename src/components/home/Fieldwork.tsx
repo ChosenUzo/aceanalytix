@@ -13,25 +13,25 @@ export default function Fieldwork() {
           <Reveal direction="right">
             <div className="grid grid-cols-5 grid-rows-6 gap-4">
               <Figure
-                alt="ACE Analytix team in a working session"
+                alt="ACE Analytix advisory team in a working session"
                 label="Working session"
                 ratio="4/5"
                 className="col-span-3 row-span-6"
-                // src="/images/working-session.jpg"
+                src="/images/advisory.webp"
               />
               <Figure
-                alt="On-site delivery"
+                alt="On-site delivery with client teams"
                 label="On the ground"
                 ratio="1/1"
                 className="col-span-2 row-span-3"
-                // src="/images/delivery.jpg"
+                src="/images/delivery.webp"
               />
               <Figure
-                alt="Institutional partners"
+                alt="Working with institutional partners"
                 label="Partners"
                 ratio="1/1"
                 className="col-span-2 row-span-3"
-                // src="/images/partners.jpg"
+                src="/images/partners.webp"
               />
             </div>
           </Reveal>

@@ -32,7 +32,7 @@ export default function AboutPage() {
               label="Firm at work"
               ratio="16/7"
               className="mb-16"
-              // src="/images/about-banner.jpg"
+              src="/images/working-session.jpg"
             />
           </Reveal>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
