@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useRef, type MouseEvent, type ReactNode } from "react";
 
-type Variant = "primary" | "outline" | "ghost" | "onDark";
+type Variant = "primary" | "outline" | "ghost" | "onDark" | "onLight";
 
 const base =
   "group relative inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium tracking-tight transition-colors duration-300 focus-visible:outline-none disabled:opacity-50";
@@ -20,6 +20,7 @@ const variants: Record<Variant, string> = {
   outline: "border border-line-strong text-text hover:bg-ink hover:text-ondark hover:border-ink",
   ghost: "text-text hover:bg-paper-2",
   onDark: "bg-ondark text-ink hover:bg-white",
+  onLight: "bg-ink text-ondark hover:bg-ink-2",
 };
 
 type CommonProps = {

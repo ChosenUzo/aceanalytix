@@ -151,6 +151,14 @@ body {
   background-size: 64px 64px;
 }
 
+/* Same full-coverage grid as -dark, but grey lines for light surfaces */
+.grid-lines-light {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
 .brand-glow {
   background: radial-gradient(circle at center, var(--brand-glow) 0%, transparent 65%);
 }

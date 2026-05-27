@@ -12,9 +12,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink text-ondark">
+    <section className="relative overflow-hidden bg-paper text-text">
       {/* layered backdrop */}
-      <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
+      <div aria-hidden className="absolute inset-0 grid-lines-light opacity-60" />
       <div
         aria-hidden
         className="brand-glow absolute -top-40 left-1/2 h-[640px] w-[640px] -translate-x-1/2 blur-3xl"
@@ -28,12 +28,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease }}
-            className="inline-flex items-center gap-2 rounded-full border border-line-ondark bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-ondark-muted backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-muted backdrop-blur"
           >
             {hero.eyebrow}
           </motion.span>
 
-          <h1 className="display mt-7 text-[clamp(2.6rem,6.5vw,5rem)] text-ondark">
+          <h1 className="display mt-7 text-[clamp(2.6rem,6.5vw,5rem)] text-text">
             {"Complex problems".split(" ").map((w, i) => (
               <motion.span
                 key={i}
@@ -60,7 +60,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45, ease }}
-            className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-ondark-muted"
+            className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted"
           >
             {hero.body}
           </motion.p>
@@ -71,11 +71,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.58, ease }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Button href={site.primaryCta.href} variant="onDark" size="lg">
+            <Button href={site.primaryCta.href} variant="onLight" size="lg">
               {site.primaryCta.label}
               <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button href="#framework" variant="ghost" size="lg" className="text-ondark hover:bg-white/10">
+            <Button href="#framework" variant="ghost" size="lg">
               See how we work
             </Button>
           </motion.div>
@@ -85,14 +85,14 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-line-ondark pt-8"
+            className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-8"
           >
             {hero.stats.map((s) => (
               <div key={s.label}>
-                <dd className="display text-3xl text-ondark sm:text-4xl">
+                <dd className="display text-3xl text-text sm:text-4xl">
                   <AnimatedNumber value={Number(s.value)} suffix={s.suffix} />
                 </dd>
-                <dt className="mt-1.5 text-xs leading-snug text-ondark-muted">{s.label}</dt>
+                <dt className="mt-1.5 text-xs leading-snug text-muted">{s.label}</dt>
               </div>
             ))}
           </motion.dl>
@@ -117,13 +117,13 @@ function DashboardMock() {
   const bars = [38, 52, 44, 67, 59, 78, 71, 92];
   return (
     <div className="animate-float relative mx-auto w-full max-w-md">
-      <div className="rounded-2xl border border-line-ondark bg-white/[0.04] p-5 shadow-float backdrop-blur-xl">
+      <div className="rounded-2xl border border-line bg-paper-2 p-5 shadow-float">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.16em] text-ondark-muted">
+            <p className="text-xs uppercase tracking-[0.16em] text-muted">
               Delivery index
             </p>
-            <p className="display mt-1 text-2xl text-ondark">On track · 94%</p>
+            <p className="display mt-1 text-2xl text-text">On track · 94%</p>
           </div>
           <span className="inline-flex items-center gap-1 rounded-full bg-brand/20 px-2.5 py-1 text-xs font-medium text-brand-400">
             <TrendingUp size={13} /> +18%
@@ -148,7 +148,7 @@ function DashboardMock() {
               <span className="grid h-5 w-5 place-items-center rounded-full bg-brand text-[10px] text-white">
                 {i + 1}
               </span>
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink/10">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${[100, 80, 64][i]}%` }}
@@ -156,7 +156,7 @@ function DashboardMock() {
                   className="h-full rounded-full bg-brand-400"
                 />
               </div>
-              <span className="w-28 text-xs text-ondark-muted">{label}</span>
+              <span className="w-28 text-xs text-muted">{label}</span>
             </div>
           ))}
         </div>
@@ -166,10 +166,10 @@ function DashboardMock() {
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -left-8 bottom-10 rounded-xl border border-line-ondark bg-ink-2/90 px-4 py-3 shadow-float backdrop-blur"
+        className="absolute -left-8 bottom-10 rounded-xl border border-line bg-paper-2 px-4 py-3 shadow-float"
       >
-        <p className="text-xs text-ondark-muted">War-room status</p>
-        <p className="text-sm font-medium text-ondark">Milestone 7 / 9 cleared</p>
+        <p className="text-xs text-muted">War-room status</p>
+        <p className="text-sm font-medium text-text">Milestone 7 / 9 cleared</p>
       </motion.div>
     </div>
   );
