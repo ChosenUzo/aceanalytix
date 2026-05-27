@@ -423,35 +423,159 @@ export const insightCategories: InsightCategory[] = [
   },
 ];
 
+export type InsightCategoryId = "articles" | "briefs" | "frameworks" | "perspectives";
+
 export type Insight = {
   slug: string;
-  category: string;
+  category: InsightCategoryId;
   title: string;
-  dek: string;
+  dek: string; // short standfirst shown on cards + detail
   author: string;
   date: string; // ISO
   readingTime: string;
+  cover?: string; // hero/cover image (place in /public/insights or reuse /images)
+  body: string[]; // one entry per paragraph
   status: "published" | "draft";
 };
 
-// Audit's #1 action: "Publish the first edition of The Position."
-// The publication is modelled here. Add real editions to make the section live.
 export const publication = {
   name: "The Position",
-  tagline: "ACE Analytix's monthly intelligence brief on African governance.",
+  tagline: "ACE Analytix's intelligence on African governance, reform, and delivery.",
   cadence: "Monthly",
 };
 
+// NOTE (content): the entries below are SAMPLE pieces that populate the four
+// Insights sections and their detail pages. Replace the title/dek/body/cover
+// with real published content. Add or remove freely — pages generate from this.
 export const insights: Insight[] = [
-  // When the first edition of The Position is ready, set status to "published".
+  // ---------- ARTICLES ----------
   {
-    slug: "the-position-no-1",
+    slug: "delivery-is-the-real-test",
+    category: "articles",
+    title: "Delivery is the real test of governance reform",
+    dek: "Strategy is abundant and cheap. Delivery is rare and expensive — and it is the only thing citizens ever actually feel.",
+    author: "Daniel Ikuenobe",
+    date: "2026-05-20",
+    readingTime: "7 min read",
+    cover: "/images/working-session.jpg",
+    body: [
+      "Across the continent, the gap is rarely between a country and a good plan. The gap is between the plan and the result. Reform agendas are written, launched, and celebrated — and then quietly stall in the distance between intent and execution.",
+      "That distance is where value hides. Closing it is unglamorous work: aligning the people who must act, sequencing the decisions that unlock the next ones, and holding the line on milestones long after the launch event is forgotten.",
+      "We argue that delivery should be designed in from the first day of any reform — not bolted on at the end. The institutions that succeed are the ones that treat execution as a discipline, not an afterthought.",
+    ],
+    status: "published",
+  },
+  {
+    slug: "closing-the-execution-gap",
+    category: "articles",
+    title: "Closing the execution gap in African institutions",
+    dek: "Why so many well-designed programmes never reach the people they were built for — and what actually closes the gap.",
+    author: "Martin Kalima",
+    date: "2026-04-28",
+    readingTime: "6 min read",
+    cover: "/images/advisory.webp",
+    body: [
+      "Most programmes do not fail at the idea stage. They fail in the long, quiet middle — where coordination breaks down, accountability blurs, and momentum leaks away one missed deadline at a time.",
+      "The fix is rarely a new strategy. It is a delivery rhythm: clear owners, short feedback loops, and a small team whose only job is to keep the work moving and surface problems early.",
+      "When institutions build that muscle, the same strategy that was stalling suddenly ships. The difference is not ambition — it is the discipline of follow-through.",
+    ],
+    status: "published",
+  },
+
+  // ---------- BRIEFS ----------
+  {
+    slug: "ogp-malawi-2023-2025",
+    category: "briefs",
+    title: "Open Government in Malawi: where the 2023–2025 cycle stands",
+    dek: "A short read on the commitments, the progress, and what the next action plan needs to prioritise.",
+    author: "Michelle Makhumula",
+    date: "2026-05-10",
+    readingTime: "4 min read",
+    body: [
+      "Malawi's current Open Government Partnership cycle has moved transparency commitments from paper into early implementation, with multi-stakeholder coordination at its core.",
+      "The progress is real but uneven. The commitments with clear owners and delivery routines are advancing; those without are drifting — a familiar pattern, and a fixable one.",
+      "The next action plan should concentrate on fewer, deeper commitments with named accountability and public milestones, rather than a longer list that dilutes attention.",
+    ],
+    status: "published",
+  },
+  {
+    slug: "digital-payments-public-sector",
+    category: "briefs",
+    title: "Digital payments in the public sector: a short brief",
+    dek: "Moving government institutions onto electronic payments is less about technology and more about trust and process.",
+    author: "Martin Kalima",
+    date: "2026-03-30",
+    readingTime: "3 min read",
+    body: [
+      "The migration to electronic payments in government is often framed as a technology project. In practice, the hard part is process redesign and the trust of the people who must use it.",
+      "Where adoption succeeds, it is because the rollout paired the system with clear guidance, training, and a feedback channel for when things go wrong.",
+      "The lesson generalises: digital reform lands when it is delivered as a change-management effort, not a software install.",
+    ],
+    status: "published",
+  },
+
+  // ---------- FRAMEWORKS ----------
+  {
+    slug: "design-develop-deliver",
+    category: "frameworks",
+    title: "The Design / Develop / Deliver model, explained",
+    dek: "The three-stage discipline behind our work — and why most firms stop at the stage that matters most.",
+    author: "ACE Analytix",
+    date: "2026-02-15",
+    readingTime: "5 min read",
+    cover: "/images/partners.webp",
+    body: [
+      "Design clarifies priorities, defines the strategic choices that matter, and shapes policy that will hold under pressure. It is where the problem is framed honestly.",
+      "Develop builds the structures, systems, capabilities, and processes a team needs to carry the strategy forward. It turns intent into something operable.",
+      "Deliver is where most firms stop and we do not. We run a war-room execution model — sitting with teams and driving delivery milestone by milestone until strategy becomes result.",
+    ],
+    status: "published",
+  },
+  {
+    slug: "war-room-execution",
+    category: "frameworks",
+    title: "War-room execution: how we run delivery",
+    dek: "A practical look at the delivery rhythm we embed with client teams to keep complex programmes moving.",
+    author: "Daniel Ikuenobe",
+    date: "2026-01-22",
+    readingTime: "5 min read",
+    body: [
+      "A war-room is not a meeting. It is a standing rhythm: a small group, a visible set of milestones, and a cadence that surfaces blockers while they are still small.",
+      "Every milestone has an owner. Every blocker has a next action and a date. Progress is tracked in the open, so problems cannot hide until they are expensive.",
+      "The point is not control for its own sake — it is momentum. The rhythm keeps the work moving on the days when nothing is on fire, which is most days.",
+    ],
+    status: "published",
+  },
+
+  // ---------- PERSPECTIVES ----------
+  {
+    slug: "hardest-problems-biggest-opportunities",
     category: "perspectives",
-    title: "The Position — No. 1",
-    dek: "One question, one argument, one signature. The first edition of our monthly brief on what governance in Africa gets wrong about delivery.",
-    author: "Daniel, Founder & Managing Partner",
-    date: "2026-06-01",
-    readingTime: "6 min",
-    status: "draft",
+    title: "Africa's hardest problems are its biggest opportunities",
+    dek: "Why we deliberately take on the problems where the gap between a good strategy and a delivered result is widest.",
+    author: "Daniel Ikuenobe",
+    date: "2026-05-01",
+    readingTime: "4 min read",
+    body: [
+      "Africa's most difficult challenges are also some of its greatest opportunities for transformation. That is not a slogan for us — it is the basis on which we choose our work.",
+      "The problems where complexity is high, alignment is difficult, and delivery is uncertain are precisely the ones where the value is largest and the field is least crowded.",
+      "We would rather close one of those gaps than add another report to an easy problem. That conviction shapes who we work with and how we measure ourselves.",
+    ],
+    status: "published",
+  },
+  {
+    slug: "why-we-stay-through-delivery",
+    category: "perspectives",
+    title: "Why we stay through delivery",
+    dek: "The case for an advisory firm that does not hand over a deck and leave.",
+    author: "Dr. Megor Ikuenobe",
+    date: "2026-04-05",
+    readingTime: "4 min read",
+    body: [
+      "Advice that ends at the recommendation puts all the risk on the client and none on the adviser. We think that model is part of why so much good strategy never lands.",
+      "Staying through delivery changes the incentives. When you are accountable for the result, you design differently — for what can actually be implemented, by real teams, under real constraints.",
+      "It is harder, slower, and more demanding. It is also the only honest way to be judged by outcomes rather than intentions.",
+    ],
+    status: "published",
   },
 ];

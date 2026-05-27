@@ -4,8 +4,7 @@ import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { services } from "@/lib/content";
-import { ArrowUpRight, Building2, Landmark, Target, Workflow } from "lucide-react";
-import Link from "next/link";
+import { Building2, Landmark, Target, Workflow } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const icons: Record<string, LucideIcon> = {
@@ -42,10 +41,7 @@ export default function OurWork() {
             const Icon = icons[s.id] ?? Landmark;
             return (
               <StaggerItem key={s.id} className="h-full">
-                <Link
-                  href={`/services#${s.id}`}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper-2 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/30 hover:shadow-card"
-                >
+                <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper-2 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/30 hover:shadow-card">
                   {/* red top accent grows on hover */}
                   <span
                     aria-hidden
@@ -66,15 +62,7 @@ export default function OurWork() {
                   <p className="mt-3 flex-1 text-pretty text-[15px] leading-relaxed text-muted">
                     {s.summary}
                   </p>
-
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
-                    Explore
-                    <ArrowUpRight
-                      size={15}
-                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </span>
-                </Link>
+                </div>
               </StaggerItem>
             );
           })}

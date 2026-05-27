@@ -1,4 +1,4 @@
-import { site, team } from "@/lib/content";
+import { insights, site, team } from "@/lib/content";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,5 +19,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticRoutes, ...teamRoutes];
+  const insightRoutes = insights
+    .filter((i) => i.status === "published")
+    .map((i) => ({
+      url: `${site.url}/insights/${i.slug}`,
+      lastModified: new Date(i.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+
+  return [...staticRoutes, ...teamRoutes, ...insightRoutes];
 }
